@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>ETS</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    
+    <style>
+        div{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container text-left col">
+        <div class="row align-items-center">
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name"></p>
+                <p id="plot-name"></p>
+            </div>
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name1"></p>
+                <p id="plot-name1"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container text-left col">
+        <div class="row align-items-center">
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name2"></p>
+                <p id="plot-name2"></p>
+            </div>
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name3"></p>
+                <p id="plot-name3"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container text-left col">
+        <div class="row align-items-center">
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name4"></p>
+                <p id="plot-name4"></p>
+            </div>
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name5"></p>
+                <p id="plot-name5"></p>
+            </div>
+        </div>
+    </div>
+    <div class="container text-left col">
+        <div class="row align-items-center">
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name6"></p>
+                <p id="plot-name6"></p>
+            </div>
+            <div class="col bg-white shadow" style="margin-right: 20px">
+                <p id="title-name7"></p>
+                <p id="plot-name7"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            const settings = {
+                async: true,
+                crossDomain: true,
+                url: 'https://it-its.id/api/movies',
+                type: 'GET',
+                data: {
+                    q: $("#title").val(),
+                }
+            };
+    
+            $.ajax(settings).done(function(response) {
+                if (Array.isArray(response) && response.length > 0) {
+                    var title = response[0].Title;
+                    var title1 = response[1].Title;
+                    var title2 = response[2].Title;
+                    var title3 = response[3].Title;
+                    var title4 = response[4].Title;
+                    var title5 = response[5].Title;
+                    var title6 = response[6].Title;
+                    var title7 = response[7].Title;
+                    var plot = response[0].Plot
+                    var plot1 = response[1].Plot
+                    var plot2 = response[2].Plot
+                    var plot3 = response[3].Plot
+                    var plot4 = response[4].Plot
+                    var plot5 = response[5].Plot
+                    var plot6 = response[6].Plot
+                    var plot7 = response[7].Plot
+                    $("#title-name").text(title);
+                    $("#title-name1").text(title1);
+                    $("#title-name2").text(title2);
+                    $("#title-name3").text(title3);
+                    $("#title-name4").text(title4);
+                    $("#title-name5").text(title5);
+                    $("#title-name6").text(title6);
+                    $("#title-name7").text(title7);
+                    $("#plot-name").text(plot);
+                    $("#plot-name1").text(plot1);
+                    $("#plot-name2").text(plot2);
+                    $("#plot-name3").text(plot3);
+                    $("#plot-name4").text(plot4);
+                    $("#plot-name5").text(plot5);
+                    $("#plot-name6").text(plot6);
+                    $("#plot-name7").text(plot7);
+                } else {
+                    $("#title-name").text("No movies found");
+                }
+            });
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+
+    </script>
+</body>
+</html>
